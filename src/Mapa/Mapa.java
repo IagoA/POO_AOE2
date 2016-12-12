@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mapa_AOE;
+package Mapa;
 
-import Edi_AOE.Edificio;
-import Uni_AOE.Unidad;
-import Uni_AOE.Grupos;
+import Edificio.Edificio;
+import Unidad.Unidad;
+import Unidad.Grupo;
 import java.util.HashMap;
 import java.util.Random;
 

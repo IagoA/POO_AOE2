@@ -5,7 +5,7 @@
  */
 package Mapa;
 
-import Rec_AOE.Recurso;
+import Recurso.Recurso;
 import java.util.HashMap;
 
 /**

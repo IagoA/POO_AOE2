@@ -5,7 +5,11 @@
  */
 package Mapa;
 
+import Edificio.Edificio;
 import Punto.Punto;
+import Recurso.FuenteRecursos;
+import Unidad.Grupo;
+import Unidad.Unidad;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -21,7 +25,7 @@ public class Celda {
   private FuenteRecursos fr;
   private Edificio ed;
   private HashMap<String, Unidad> uds;
-  private HashMap<String, Grupos> grup;
+  private HashMap<String, Grupo> grup;
 
   //constructores
   public Celda(char fuente, int cantidad, int x, int y, Civilizacion civi) {
@@ -72,7 +76,7 @@ public class Celda {
     int total = 0;
     total += uds.size();
     for (String clave : grup.keySet()) {
-      Grupos g = grup.get(clave);
+      Grupo g = grup.get(clave);
       total += g.getUds().size();
     }
     return total;

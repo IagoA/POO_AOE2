@@ -5,9 +5,12 @@
  */
 package Unidad;
 
+import Edificio.Ciudadela;
+import Edificio.Edificio;
 import Mapa.Celda;
 import Mapa.Civilizacion;
 import Punto.Punto;
+import Recurso.FuenteRecursos;
 
 /**
  *
@@ -66,16 +69,16 @@ public abstract class Unidad {
             Punto p = new Punto(cel.getPos());
             switch (pto_cardinal) {
                 case "NORTE":
-                    p.moverY(-1);
+                    p.moverY((-1)*capacidadMovimiento());
                     break;
                 case "SUR":
-                    p.moverY(1);
+                    p.moverY(capacidadMovimiento());
                     break;
                 case "ESTE":
-                    p.moverX(1);
+                    p.moverX(capacidadMovimiento());
                     break;
                 case "OESTE":
-                    p.moverX(-1);
+                    p.moverX((-1)*capacidadMovimiento());
                     break;
                 default:
                     return null;
@@ -96,6 +99,8 @@ public abstract class Unidad {
     public abstract void reparar(Edificio edificio);
 
     public abstract Edificio contruir(String tipo_edificio);
+    
+    public abstract char getTipo();
 
     public void defender(Edificio edificio) {
         edificio.setAtaque(ataque + edificio.getAtaque());
