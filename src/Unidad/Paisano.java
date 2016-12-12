@@ -155,21 +155,17 @@ public final class Paisano extends Unidad {
     }
     
     @Override
-    public Edificio contruir(String tipo_edificio){
+    public Edificio construir(String tipo_edificio){
         Edificio ed;
         switch(tipo_edificio){
             case "casa":
                 return ed =(Edificio) new Casa(civi);
-                break;
             case "cuartel":
                 return ed =(Edificio) new Cuartel(civi);
-                break;
             case "ciudadela":
                 return ed =(Edificio) new Ciudadela(civi);
-                break;
             case "torre":
                 return ed =(Edificio) new Torre(civi);
-                break;
             default:
                 return null;
         }

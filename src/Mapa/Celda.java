@@ -111,10 +111,8 @@ public class Celda {
     return visible.contains(civi);
   }
 
-  public void anadirEdificio(char edificio, Civilizacion civi) {
-    if (ed == null && fr.getTipo() == 'p' && uds.isEmpty()) {
-      ed = new Edificio(edificio, civi);
-    }
+  public void anadirEdificio(Edificio edificio) {
+    ed = edificio;
   }
 
   public void anadirEdificio(char edificio, Unidad constructor, Civilizacion civi) {

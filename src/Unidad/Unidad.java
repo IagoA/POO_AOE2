@@ -98,7 +98,7 @@ public abstract class Unidad {
 
     public abstract void reparar(Edificio edificio);
 
-    public abstract Edificio contruir(String tipo_edificio);
+    public abstract Edificio construir(String tipo_edificio);
     
     public abstract char getTipo();
 
