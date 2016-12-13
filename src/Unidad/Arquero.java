@@ -7,7 +7,7 @@ package Unidad;
 
 import Edificio.Ciudadela;
 import Edificio.Edificio;
-import FuenteRecurso.FuenteRecursos;
+import Recurso.FuenteRecursos;
 
 /**
  *

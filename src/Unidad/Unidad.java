@@ -10,7 +10,7 @@ import Edificio.Edificio;
 import Mapa.Celda;
 import Mapa.Civilizacion;
 import Punto.Punto;
-import FuenteRecurso.FuenteRecursos;
+import Recurso.FuenteRecursos;
 
 /**
  *

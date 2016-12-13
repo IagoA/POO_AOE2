@@ -8,7 +8,7 @@ package Unidad;
 import Edificio.Ciudadela;
 import Edificio.Edificio;
 import Mapa.Civilizacion;
-import FuenteRecurso.FuenteRecursos;
+import Recurso.FuenteRecursos;
 import Recurso.Recurso;
 
 /**
