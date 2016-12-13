@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Recurso;
+package FuenteRecurso;
+
+import Recurso.Recurso;
 
 /**
  *
  * @author Sergio
  */
-public class FuenteRecursos {
+public abstract class FuenteRecursos {
 
-    Recurso r;
+    private Recurso r;
+    private int cantInicial;
 
     public FuenteRecursos(char tipofuente, int cantidadrecurso) {
         switch (tipofuente) {
@@ -28,10 +31,12 @@ public class FuenteRecursos {
                 r = new Recurso('C', cantidadrecurso);
                 break;
         }
+        cantInicial = r.getCantidad();
     }
 
     public FuenteRecursos() {
         r = null;
+        cantInicial = 0;
     }
 
     public Recurso getRecurso() {//evito aliasing porque solo quiero que se acceda a través de las funciones de FuenteRecursos
@@ -51,6 +56,16 @@ public class FuenteRecursos {
         if (r.getCantidad() <= 0) {
             r = null;
         }
+    }
+    
+    public void setCantInicial(int c){
+        if(c >= 0){
+            cantInicial = c;
+        }
+    }
+    
+    public int getCantInicial(){
+        return cantInicial;
     }
 
     public char getTipo() {

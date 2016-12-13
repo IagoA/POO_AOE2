@@ -8,7 +8,7 @@ package Unidad;
 import Edificio.Ciudadela;
 import Edificio.Edificio;
 import Mapa.Civilizacion;
-import Recurso.FuenteRecursos;
+import FuenteRecurso.FuenteRecursos;
 import java.util.HashMap;
 
 /**

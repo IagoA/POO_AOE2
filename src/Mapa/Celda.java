@@ -7,7 +7,7 @@ package Mapa;
 
 import Edificio.Edificio;
 import Punto.Punto;
-import Recurso.FuenteRecursos;
+import FuenteRecurso.FuenteRecursos;
 import Unidad.Grupo;
 import Unidad.Unidad;
 import java.util.ArrayList;
