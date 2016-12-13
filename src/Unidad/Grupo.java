@@ -5,7 +5,10 @@
  */
 package Unidad;
 
+import Edificio.Ciudadela;
+import Edificio.Edificio;
 import Mapa.Civilizacion;
+import Recurso.FuenteRecursos;
 import java.util.HashMap;
 
 /**
@@ -54,7 +57,7 @@ public class Grupo extends Unidad {
 
         return (numPai + numSol) <= 1;
     }
-    
+
     @Override
     public void modSalud(int mod) {
         Unidad u;
@@ -66,6 +69,60 @@ public class Grupo extends Unidad {
             }
         }
     }
-    
-    
+
+    @Override
+    public void recolectar(FuenteRecursos contenedor) {
+        if (numSol == 0) {
+            for (String clave : uds.keySet()) {
+                uds.get(clave).recolectar(contenedor);
+            }
+        }//else Error
+    }
+
+    @Override
+    public void almacenar(Ciudadela ciudadela) {
+        if (numSol == 0) {
+            for (String clave : uds.keySet()) {
+                if (((Paisano) uds.get(clave)).getR() != null) {
+                    uds.get(clave).almacenar(ciudadela);
+                }
+            }
+        }//else Error
+    }
+
+    @Override
+    public void reparar(Edificio edificio) {
+        if (numSol == 0) {
+            ((Paisano) (uds.get((String) (uds.keySet().toArray()[0])))).reparar(edificio);
+        }//else Error
+    }
+
+    @Override
+    public Edificio construir(String tipo_edificio) {
+        //Error
+        return null;
+    }
+
+    @Override
+    public char getTipo() {
+        return 'G';
+    }
+
+    @Override
+    public double danhoAtaque(Unidad personaje) {
+        double dano = 0d;
+        for (String clave : uds.keySet()) {
+            dano += uds.get(clave).danhoAtaque(personaje);
+        }
+        return dano;
+    }
+
+    @Override
+    public double danhoAtaque(Edificio edificio) {
+        double dano = 0d;
+        for (String clave : uds.keySet()) {
+            dano += uds.get(clave).danhoAtaque(edificio);
+        }
+        return dano;
+    }
 }

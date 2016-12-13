@@ -115,6 +115,7 @@ public final class Paisano extends Unidad {
 
     @Override
     public void recolectar(FuenteRecursos contenedor) {
+        if(getR().getTipo() != contenedor.getRecurso().getTipo()) r = null;
         int cant1;
         if (getR() != null) {
             cant1 = getCapacidadRecurso() - getR().getCantidad();
