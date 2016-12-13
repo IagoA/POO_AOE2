@@ -758,7 +758,7 @@ public class Mapa {
           break;
       }
     } else {
-      System.out.println("Comando incorrecto. No se ha encontrado la unidad");
+      System.out.println("Comando incorrecto. No se ha encontrado la unidad o el grupo");
     }
   }
 

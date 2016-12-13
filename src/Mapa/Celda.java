@@ -34,7 +34,7 @@ public class Celda {
     grup = new HashMap<>();
     visible = new ArrayList<>();
     visible.add(civi.getCodigo());
-    pos = new Punto(x,y);
+    pos = new Punto(x, y);
   }
 
   public Celda(char fuente, int cantidad, int x, int y) {
@@ -42,7 +42,7 @@ public class Celda {
     uds = new HashMap<>();
     grup = new HashMap<>();
     visible = new ArrayList<>();
-    pos = new Punto(x,y);
+    pos = new Punto(x, y);
   }
 
   public Celda(int x, int y) {
@@ -50,7 +50,7 @@ public class Celda {
     uds = new HashMap<>();
     grup = new HashMap<>();
     visible = new ArrayList<>();
-    pos = new Punto(x,y);
+    pos = new Punto(x, y);
   }
 
   public Celda(int x, int y, Civilizacion civi) {
@@ -59,7 +59,7 @@ public class Celda {
     grup = new HashMap<>();
     visible = new ArrayList<>();
     visible.add(civi.getCodigo());
-    pos = new Punto(x,y);
+    pos = new Punto(x, y);
   }
 
   public Celda(char edificio, int x, int y, Civilizacion civi) {
@@ -69,7 +69,7 @@ public class Celda {
     grup = new HashMap<>();
     visible = new ArrayList<>();
     visible.add(civi.getCodigo());
-    pos = new Punto(x,y);
+    pos = new Punto(x, y);
   }
 
   public int getTotalUds() {
@@ -133,7 +133,7 @@ public class Celda {
 
   public HashMap<String, Unidad> getUds() {
     if (fr.getTipo() == 'p') {
-      return uds;
+      return new HashMap<>(uds);
     }
     return null;
   }
@@ -150,7 +150,7 @@ public class Celda {
 
   public HashMap<String, Grupos> getGrup() {
     if (fr.getTipo() == 'p') {
-      return grup;
+      return new HashMap<>(grup);
     }
     return null;
   }
@@ -165,6 +165,26 @@ public class Celda {
     }
   }
 
+  public void put(String nom, Unidad u) {
+    if (fr.getTipo() == 'p' && u!=null) {
+      if(u instanceof Grupo){
+        grup.put(nom, u);
+      }else{
+        uds.put(nom, u);
+      }
+    } else {
+      return;
+    }
+  }
+
+  public void remove(String nom){
+    if(fr.getTipo()=='p'){
+      grup.remove(nom);//si no existe, no hará nada
+      uds.remove(nom);//si no existe, no hara nada
+    }else{
+      return;
+    }
+  }
   public void anhadirUnidad(Unidad uni) {
     if (uni != null) {
       uds.put(uni.getNombre(), uni);
@@ -207,9 +227,9 @@ public class Celda {
   public int getY() {
     return pos.getY();
   }
-  
-  public Punto getPos(){
-    Punto p = new Punto(pos.getX(),pos.getY());
+
+  public Punto getPos() {
+    Punto p = new Punto(pos.getX(), pos.getY());
     return p;
   }
 
@@ -543,10 +563,10 @@ public class Celda {
     return ((Celda) otra).getX() == this.getX() && ((Celda) otra).getY() == this.getY();
   }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.pos);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 5;
+    hash = 59 * hash + Objects.hashCode(this.pos);
+    return hash;
+  }
 }
