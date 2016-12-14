@@ -303,9 +303,8 @@ public abstract class Edificio {
     public Civilizacion getCivilizacion() {
         return civilizacion;
     }
+    public abstract char getTipo();
     
-    
-
     @Override
     public boolean equals(Object edi) {
         if (edi == null) {

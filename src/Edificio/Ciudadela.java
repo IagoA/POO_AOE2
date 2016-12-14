@@ -81,4 +81,7 @@ public class Ciudadela extends Edificio {
         ret[0] = (int) (275 * por1);
         return ret;
     }
+  public char getTipo() {
+    return 'C';
+  }
 }

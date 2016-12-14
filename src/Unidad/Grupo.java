@@ -7,8 +7,10 @@ package Unidad;
 
 import Edificio.Ciudadela;
 import Edificio.Edificio;
+import Excepcion.Excepcion;
+import Excepcion.ExcepcionGrupoConSoldados;
 import Mapa.Civilizacion;
-import Recurso.FuenteRecursos;
+import FuenteRecurso.FuenteRecursos;
 import java.util.HashMap;
 
 /**
@@ -71,36 +73,41 @@ public class Grupo extends Unidad {
     }
 
     @Override
-    public void recolectar(FuenteRecursos contenedor) {
+    public void recolectar(FuenteRecursos contenedor) throws Excepcion {
         if (numSol == 0) {
             for (String clave : uds.keySet()) {
                 uds.get(clave).recolectar(contenedor);
             }
-        }//else Error
+        }else{
+          throw new ExcepcionGrupoConSoldados();
+        }
     }
 
     @Override
-    public void almacenar(Ciudadela ciudadela) {
+    public void almacenar(Ciudadela ciudadela) throws Excepcion {
         if (numSol == 0) {
             for (String clave : uds.keySet()) {
                 if (((Paisano) uds.get(clave)).getR() != null) {
                     uds.get(clave).almacenar(ciudadela);
                 }
             }
-        }//else Error
+        } else {
+          throw new ExcepcionGrupoConSoldados();
+        }
     }
 
     @Override
-    public void reparar(Edificio edificio) {
+    public void reparar(Edificio edificio) throws ExcepcionGrupoConSoldados {
         if (numSol == 0) {
             ((Paisano) (uds.get((String) (uds.keySet().toArray()[0])))).reparar(edificio);
-        }//else Error
+        }else{
+          throw new ExcepcionGrupoConSoldados();
+        }
     }
 
     @Override
-    public Edificio construir(String tipo_edificio) {
-        //Error
-        return null;
+    public Edificio construir(String tipo_edificio) throws Excepcion {
+        throw new Excepcion("Los grupos no pueden construir");
     }
 
     @Override

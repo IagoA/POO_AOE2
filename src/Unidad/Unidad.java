@@ -7,10 +7,11 @@ package Unidad;
 
 import Edificio.Ciudadela;
 import Edificio.Edificio;
+import Excepcion.Excepcion;
 import Mapa.Celda;
 import Mapa.Civilizacion;
 import Punto.Punto;
-import Recurso.FuenteRecursos;
+import FuenteRecurso.FuenteRecursos;
 
 /**
  *
@@ -92,13 +93,13 @@ public abstract class Unidad {
     
     public abstract void modSalud(int mod);
 
-    public abstract void recolectar(FuenteRecursos contenedor);
+    public abstract void recolectar(FuenteRecursos contenedor) throws Excepcion;
 
-    public abstract void almacenar(Ciudadela ciudadela);
+    public abstract void almacenar(Ciudadela ciudadela) throws Excepcion;
 
-    public abstract void reparar(Edificio edificio);
+    public abstract void reparar(Edificio edificio) throws Excepcion;
 
-    public abstract Edificio construir(String tipo_edificio);
+    public abstract Edificio construir(String tipo_edificio) throws Excepcion;
     
     public abstract char getTipo();
 

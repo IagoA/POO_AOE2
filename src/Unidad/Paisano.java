@@ -5,10 +5,16 @@
  */
 package Unidad;
 
+import Edificio.Casa;
 import Edificio.Ciudadela;
+import Edificio.Cuartel;
 import Edificio.Edificio;
+import Edificio.Torre;
 import Mapa.Civilizacion;
-import Recurso.FuenteRecursos;
+import FuenteRecurso.FuenteRecursos;
+import Recurso.Comida;
+import Recurso.Madera;
+import Recurso.Piedra;
 import Recurso.Recurso;
 
 /**
@@ -51,11 +57,29 @@ public final class Paisano extends Unidad {
                 return 0;
             }
             if (cant <= capacidadRecurso) {
-                r = new Recurso(tipo, cant);
+                switch(tipo){
+              case 'C':
+                r=new Comida(cant);
+                break;
+              case 'M':
+                r= new Madera(cant);
+                break;
+              case 'P':
+                r= new Piedra(cant);
+            }
                 return cant;
             }
             if (cant > capacidadRecurso) {
-                r = new Recurso(tipo, capacidadRecurso);
+                switch(tipo){
+              case 'C':
+                r=new Comida(capacidadRecurso);
+                break;
+              case 'M':
+                r= new Madera(capacidadRecurso);
+                break;
+              case 'P':
+                r= new Piedra(capacidadRecurso);
+            }
                 return capacidadRecurso;
             }
         }
@@ -72,8 +96,16 @@ public final class Paisano extends Unidad {
                 return i;
             }
         } else if (cant >= 0) {
-            r.setTipo(tipo);
-            r.setCantidad(0);
+            switch(tipo){
+              case 'C':
+                r=new Comida(0);
+                break;
+              case 'M':
+                r= new Madera(0);
+                break;
+              case 'P':
+                r= new Piedra(0);
+            }
             if (r.getCantidad() + cant <= capacidadRecurso) {
                 int ret = r.modCantidad(cant);
                 if (r.getCantidad() == 0) {

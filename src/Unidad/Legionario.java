@@ -7,7 +7,8 @@ package Unidad;
 
 import Edificio.Ciudadela;
 import Edificio.Edificio;
-import Recurso.FuenteRecursos;
+import Excepcion.ExcepcionUnidadNoExNoPaisano;
+import FuenteRecurso.FuenteRecursos;
 
 /**
  *
@@ -19,24 +20,26 @@ public class Legionario extends Soldado{
         return 'L';
     }
     
-    @Override
-    public void recolectar(FuenteRecursos contenedor) {
-        //error
-    }
+
 
     @Override
-    public void almacenar(Ciudadela ciudadela) {
-        //error
-    }
+    public void almacenar(Ciudadela ciudadela)throws ExcepcionUnidadNoExNoPaisano{
+    throw new Excepcion.ExcepcionUnidadNoExNoPaisano("Esta unidad no puede recolectar");
+  }
+
 
     @Override
-    public void reparar(Edificio edificio) {
-        //error
-    }
+    public void reparar(Edificio edificio) throws ExcepcionUnidadNoExNoPaisano{
+    throw new Excepcion.ExcepcionUnidadNoExNoPaisano("Esta unidad no puede recolectar");
+  }
     
     @Override
-    public Edificio construir(String tipo_edificio){
-        //error
-        return null;
-    }
+    public Edificio construir(String tipo_edificio)throws ExcepcionUnidadNoExNoPaisano{
+    throw new Excepcion.ExcepcionUnidadNoExNoPaisano("Esta unidad no puede recolectar");
+  }
+
+  @Override
+  public void recolectar(FuenteRecursos contenedor)throws ExcepcionUnidadNoExNoPaisano{
+    throw new Excepcion.ExcepcionUnidadNoExNoPaisano("Esta unidad no puede recolectar");
+  }
 }

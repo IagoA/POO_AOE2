@@ -9,37 +9,16 @@ package Recurso;
  *
  * @author Sergio
  */
-public class Recurso {
+public abstract class Recurso {
 
-    private char tipo;//M,P,C
-    private int cantidad;
-
-    public Recurso(Recurso r) {
-        this.tipo = r.tipo;
-        this.cantidad = r.cantidad;
-    }
-
-    public Recurso(char tipo, int cantidad) {
-        this.tipo = tipo;
-        this.cantidad = cantidad;
-    }
-
-    public Recurso(char tipo) {
-        this.tipo = tipo;
-        this.cantidad = 0;
-    }
+    //private char tipo;//M,P,C
+    protected int cantidad;
 
     public int getCantidad() {
         return this.cantidad;
     }
 
-    public char getTipo() {
-        return this.tipo;
-    }
-
-    public void setTipo(char tipo) {
-        this.tipo = tipo;
-    }
+    public abstract char getTipo() ;
 
     public int modCantidad(int mod) {
         if (cantidad + mod < 0) {
